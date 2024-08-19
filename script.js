@@ -26,10 +26,6 @@ function randint(min, max) {
 	return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function rchoice(array) {
-	return array[randint(0, array.length)];
-}
-
 async function onReady() {
 	for (let query of bodyPartQueries) {
 		bodyParts.push(hangman.querySelector(query));
@@ -83,9 +79,10 @@ function displayWord() {
 async function getNewWord() {
 	let randWordList = [];
 
-	const response = await fetch("https://random-word-api.herokuapp.com/word");
+	const response = await fetch(
+		"https://random-word-api.herokuapp.com/word?length=" + randint(4, 6)
+	);
 	const data = await response.json();
-	console.log(data);
 
 	return data[0].toUpperCase();
 }
