@@ -152,8 +152,10 @@ function processInput(el) {
 
 	statusEl = statusDisplay.querySelector("#status");
 	if (winStatus) {
+		statusEl.setAttribute("class", "correct");
 		statusEl.innerHTML = "You won!";
 	} else {
+		statusEl.setAttribute("class", "incorrect");
 		statusEl.innerHTML = "You lost!";
 		for (let letter of letters) {
 			letter.querySelector("p").style.display = "block";

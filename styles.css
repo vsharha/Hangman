@@ -14,14 +14,21 @@
 }
 
 html {
-	background: rgb(148, 222, 243);
+	background: linear-gradient(rgb(109, 181, 245), rgb(36, 119, 187));
+	background-attachment: fixed;
 }
 
 header {
+	background: white;
 	color: black;
 	text-align: center;
-	padding-bottom: 2rem;
 	font-size: 1.5rem;
+	border-radius: 1rem;
+	width: 32%;
+	margin: auto;
+	padding-bottom: 0.5rem;
+	margin-bottom: 3rem;
+	box-shadow: 0.25rem 0.25rem rgba(0, 0, 0, 0.5);
 }
 
 #content {
@@ -29,8 +36,8 @@ header {
 	width: 60rem;
 	margin: auto;
 	padding: 1rem;
-	height: 39rem;
 	margin-top: 2rem;
+	border-radius: 1rem;
 }
 
 #game {
@@ -54,24 +61,39 @@ header {
 .display {
 	width: 40%;
 	margin: auto;
-	margin-top: 1rem;
+	margin-top: 2rem;
 	background: rgba(0, 0, 0, 0.25);
-	padding: 0.25rem;
+	padding: 1rem;
 	display: none;
+	border-radius: 0.5rem;
 }
 
 #status {
+	border-radius: 0.5rem;
+	width: 80%;
+	margin: auto;
 	color: white;
-	text-shadow: 0.15rem 0.15rem rgba(0, 0, 0, 0.5);
 	font-size: 2rem;
 	text-align: center;
-	margin-bottom: 0.25rem;
+	padding: 0.3rem;
+	padding-top: 0.5rem;
+	margin-bottom: 0.5rem;
+
+	box-shadow: 0.2rem 0.2rem rgba(0, 0, 0, 0.5);
 }
 
 #reset {
-	font-size: 1rem;
-	display: block;
+	font-size: 1.2rem;
 	margin: auto;
+	border-radius: 4rem;
+	box-shadow: 0.2rem 0.2rem rgba(0, 0, 0, 0.5);
+	padding: 0.2rem 1rem;
+}
+
+#reset:active {
+	transform: translateX(0.1rem) translateY(0.1rem);
+
+	box-shadow: 0.1rem 0.1rem rgba(0, 0, 0, 0.5);
 }
 
 #word {
@@ -85,7 +107,8 @@ header {
 	aspect-ratio: 1/1;
 	width: 3rem;
 	background: white;
-	border-bottom: 0.25rem solid black;
+	border: 0.15rem solid black;
+	border-bottom: 0.4rem solid black;
 	font-size: 2rem;
 }
 
@@ -112,23 +135,39 @@ header {
 	gap: 0.5rem;
 }
 
+button {
+	display: block;
+}
+
 #buttons button {
 	aspect-ratio: 1/1;
 	width: calc((100% - 0.5rem * 9) / 9);
 	font-size: 1.5rem;
+
+	border: 0.15rem solid black;
+	border-radius: 1rem;
+
+	box-shadow: 0rem 0.2rem rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+	filter: brightness(85%);
+}
+
+#buttons button:active {
+	transform: translateY(0.1rem);
+	box-shadow: 0rem 0.1rem rgba(0, 0, 0, 0.5);
 }
 
 /* Hangman */
 
 #drawing-container {
-	background: white;
-	padding: 1rem;
 	margin-right: 1rem;
 }
 
 #drawing {
 	width: 18rem;
-	height: 27rem;
+	height: 25rem;
 }
 
 .structure,
@@ -247,7 +286,8 @@ header {
 }
 
 @media screen and (max-width: 576px) {
-	html {
+	header {
+		width: 55%;
 	}
 	header {
 		font-size: 3rem;
@@ -255,6 +295,7 @@ header {
 	#content {
 		height: 71rem;
 		margin-top: 0rem;
+		border-radius: 0rem 0rem 1rem 1rem;
 	}
 	#game {
 		flex-direction: column;
@@ -296,6 +337,5 @@ header {
 
 	#reset {
 		font-size: 3rem;
-		padding: 0.5rem 1.5rem;
 	}
 }
