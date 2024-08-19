@@ -34,14 +34,69 @@ header {
 	display: flex;
 }
 
+#text {
+	display: flex;
+	flex: 1;
+}
+
+#text * {
+	margin: auto;
+}
+
 #input {
 	width: 90%;
 	margin: auto;
-	flex: 1;
+}
+
+.display {
+	width: 40%;
+	margin: auto;
+	margin-top: 1rem;
+	background: rgba(0, 0, 0, 0.25);
+	padding: 0.25rem;
+	display: none;
+}
+
+#status {
+	color: white;
+	text-shadow: 0.15rem 0.15rem rgba(0, 0, 0, 0.5);
+	font-size: 2rem;
+	text-align: center;
+	margin-bottom: 0.25rem;
+}
+
+#reset {
+	font-size: 1rem;
+	display: block;
+	margin: auto;
 }
 
 #word {
 	text-align: center;
+	display: flex;
+	justify-content: center;
+	gap: 0.5rem;
+}
+
+#letter {
+	aspect-ratio: 1/1;
+	width: 3rem;
+	border-bottom: 0.25rem solid black;
+	font-size: 2rem;
+}
+
+#letter p {
+	display: none;
+}
+
+.correct {
+	color: white;
+	background: green;
+}
+
+.incorrect {
+	color: white;
+	background: red;
 }
 
 #buttons {
@@ -50,24 +105,26 @@ header {
 	flex-wrap: wrap;
 	justify-content: center;
 	grid-auto-flow: dense;
+	gap: 0.5rem;
 }
 
 #buttons button {
 	aspect-ratio: 1/1;
-	--marginWidth: 0.25rem;
-	margin: var(--marginWidth);
-	width: calc((100% - var(--marginWidth) * 18) / 9);
+	width: calc((100% - 0.5rem * 9) / 9);
 	font-size: 1.5rem;
 }
 
 /* Hangman */
 
-#drawing {
-	width: 18rem;
-	height: 27rem;
+#drawing-container {
 	background: white;
 	padding: 1rem;
 	margin-right: 1rem;
+}
+
+#drawing {
+	width: 18rem;
+	height: 27rem;
 }
 
 .structure,
@@ -86,12 +143,13 @@ header {
 
 .structure {
 	left: 3rem;
+	bottom: 1rem;
 }
 
 .hangman {
 	margin-top: 2rem;
 	left: 7rem;
-	top: 2rem;
+	top: 3rem;
 }
 
 .pole {
@@ -113,7 +171,7 @@ header {
 	height: var(--line-thickness);
 	width: 6rem;
 	top: 24rem;
-	right: 12.5rem;
+	right: 14rem;
 }
 
 .rope {
