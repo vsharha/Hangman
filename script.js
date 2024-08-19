@@ -22,7 +22,15 @@ let guesses = [];
 
 let allowInput = true;
 
-function onReady() {
+function randint(min, max) {
+	return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function rchoice(array) {
+	return array[randint(0, array.length)];
+}
+
+async function onReady() {
 	for (let query of bodyPartQueries) {
 		bodyParts.push(hangman.querySelector(query));
 	}
@@ -37,7 +45,7 @@ function onReady() {
 		reset();
 	});
 
-	word = getNewWord();
+	word = await getNewWord();
 	displayWord();
 
 	hideHangman();
@@ -72,13 +80,17 @@ function displayWord() {
 	}
 }
 
-function getNewWord() {
-	let newWord = "banana";
+async function getNewWord() {
+	let randWordList = [];
 
-	return newWord.toUpperCase();
+	const response = await fetch("https://random-word-api.herokuapp.com/word");
+	const data = await response.json();
+	console.log(data);
+
+	return data[0].toUpperCase();
 }
 
-function reset() {
+async function reset() {
 	hideHangman();
 	for (let button of buttons) {
 		button.setAttribute("class", "");
@@ -86,7 +98,7 @@ function reset() {
 	score = 0;
 	guesses = [];
 
-	word = getNewWord();
+	word = await getNewWord();
 	displayWord();
 
 	statusDisplay.style.display = "none";
@@ -113,7 +125,7 @@ function wordUnlocked(letters) {
 			counter++;
 		}
 	}
-	console.log(counter);
+
 	return counter == letters.length;
 }
 

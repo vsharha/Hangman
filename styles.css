@@ -288,12 +288,13 @@ button:hover {
 @media screen and (max-width: 576px) {
 	header {
 		width: 55%;
-	}
-	header {
 		font-size: 3rem;
+		margin: auto;
+		margin-top: 1.5rem;
+		margin-bottom: 3rem;
 	}
 	#content {
-		height: 71rem;
+		height: 69rem;
 		margin-top: 0rem;
 		border-radius: 0rem 0rem 1rem 1rem;
 	}
