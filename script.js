@@ -56,13 +56,13 @@ function unhideCurrentPart() {
 }
 
 function displayWord() {
-	for (let letterEl of wordContainer.querySelectorAll("#letter")) {
+	for (let letterEl of wordContainer.querySelectorAll(".letter")) {
 		letterEl.remove();
 	}
 
 	for (let letter of word) {
 		let letterEl = document.createElement("div");
-		letterEl.setAttribute("id", "letter");
+		letterEl.setAttribute("class", "letter");
 
 		textEl = document.createElement("p");
 		letterEl.appendChild(textEl);
@@ -126,7 +126,7 @@ function processInput(el) {
 	currentGuess = el.innerHTML;
 	guesses.push(currentGuess);
 
-	let letters = wordContainer.querySelectorAll("#letter");
+	let letters = wordContainer.querySelectorAll(".letter");
 	if (word.includes(currentGuess)) {
 		el.setAttribute("class", "correct");
 		correctIndexes = indexes(word, currentGuess);
