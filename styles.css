@@ -35,6 +35,8 @@ header {
 }
 
 #input {
+	width: 90%;
+	margin: auto;
 	flex: 1;
 }
 
@@ -43,20 +45,22 @@ header {
 }
 
 #buttons {
-	width: 80%;
-	margin: auto;
 	margin-top: 1rem;
-	display: grid;
-	grid-template-columns: repeat(9, 1fr);
+	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
-	gap: 0.5rem;
 	grid-auto-flow: dense;
 }
 
 #buttons button {
 	aspect-ratio: 1/1;
+	--marginWidth: 0.25rem;
+	margin: var(--marginWidth);
+	width: calc((100% - var(--marginWidth) * 18) / 9);
 	font-size: 1.5rem;
 }
+
+/* Hangman */
 
 #drawing {
 	width: 18rem;
@@ -119,14 +123,6 @@ header {
 	left: 0.05rem;
 }
 
-.head {
-	aspect-ratio: 1/1;
-	width: 5rem;
-	border-radius: 100%;
-	background: none;
-	border: var(--line-thickness) solid var(--drawing-color);
-}
-
 .eye {
 	aspect-ratio: 1/1;
 	width: 0.5rem;
@@ -147,6 +143,16 @@ header {
 	top: 5rem;
 }
 
+/* Used in the game */
+
+.head {
+	aspect-ratio: 1/1;
+	width: 5rem;
+	border-radius: 100%;
+	background: none;
+	border: var(--line-thickness) solid var(--drawing-color);
+}
+
 .torso {
 	height: 6rem;
 }
@@ -158,18 +164,18 @@ header {
 	right: 1.4rem;
 }
 
+.right.arm {
+	transform: skew(35deg);
+
+	left: 1.4rem;
+}
+
 .leg {
 	height: 5.5rem;
 	transform: skew(-25deg);
 
 	top: 6rem;
 	right: 1.3rem;
-}
-
-.right.arm {
-	transform: skew(35deg);
-
-	left: 1.4rem;
 }
 
 .right.leg {
