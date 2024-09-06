@@ -49,6 +49,30 @@ async function onReady() {
 
 window.onload = onReady();
 
+window.addEventListener(
+	"keydown",
+	function (event) {
+		if (event.defaultPrevented) {
+			return;
+		}
+
+		if (event.key.length == 1 && event.key.match(/[a-z]/i)) {
+			let input = event.key.toUpperCase();
+			for (let button of buttons) {
+				if (button.innerHTML == input) {
+					processInput(button);
+					return;
+				}
+			}
+		} else {
+			return;
+		}
+
+		event.preventDefault();
+	},
+	true
+);
+
 function hideHangman() {
 	for (let part of bodyParts) {
 		part.style.display = "none";
@@ -80,7 +104,7 @@ async function getNewWord() {
 	let randWordList = [];
 
 	const response = await fetch(
-		"https://random-word-api.herokuapp.com/word?length=" + randint(4, 6)
+		"https://random-word-api.herokuapp.com/word?length=" + randint(5, 8)
 	);
 	const data = await response.json();
 
