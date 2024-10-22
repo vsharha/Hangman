@@ -1,7 +1,8 @@
-const buttons = document.querySelectorAll("#buttons button");
-const hangman = document.querySelector(".hangman");
-const wordContainer = document.querySelector("#word");
-const statusDisplay = document.querySelector(".display");
+const buttons: NodeListOf<HTMLElement> =
+	document.querySelectorAll("#buttons button");
+const hangman: HTMLElement = document.querySelector(".hangman");
+const wordContainer: HTMLElement = document.querySelector("#word");
+const statusDisplay: HTMLElement = document.querySelector(".display");
 
 const bodyPartQueries = [
 	".head",
@@ -11,18 +12,18 @@ const bodyPartQueries = [
 	".leg",
 	".right.leg",
 ];
-const bodyParts = [];
+let bodyParts: Array<HTMLElement> = [];
 
 let word = "BANANA";
 
 let currentGuess = "";
 let score = 0;
 
-let guesses = [];
+let guesses: Array<string> = [];
 
 let allowInput = true;
 
-function randint(min, max) {
+function randint(min: number, max: number) {
 	return Math.floor(Math.random() * (max - min)) + min;
 }
 
@@ -47,7 +48,7 @@ async function onReady() {
 	hideHangman();
 }
 
-window.onload = onReady();
+window.onload = onReady;
 
 window.addEventListener(
 	"keydown",
@@ -92,7 +93,7 @@ function displayWord() {
 		let letterEl = document.createElement("div");
 		letterEl.setAttribute("class", "letter");
 
-		textEl = document.createElement("p");
+		let textEl = document.createElement("p");
 		letterEl.appendChild(textEl);
 		textEl.innerHTML = letter;
 
@@ -101,8 +102,6 @@ function displayWord() {
 }
 
 async function getNewWord() {
-	let randWordList = [];
-
 	const response = await fetch(
 		"https://random-word-api.herokuapp.com/word?length=" + randint(5, 8)
 	);
@@ -139,8 +138,8 @@ function indexes(string, find) {
 	return results;
 }
 
-function wordUnlocked(letters) {
-	counter = 0;
+function wordUnlocked(letters: NodeListOf<HTMLElement>) {
+	let counter = 0;
 	for (let letter of letters) {
 		if (letter.querySelector("p").style.display == "block") {
 			counter++;
@@ -150,7 +149,7 @@ function wordUnlocked(letters) {
 	return counter == letters.length;
 }
 
-function processInput(el) {
+function processInput(el: HTMLElement) {
 	// start game
 	if (guesses.includes(el.innerHTML) || !allowInput) {
 		return;
@@ -159,10 +158,11 @@ function processInput(el) {
 	currentGuess = el.innerHTML;
 	guesses.push(currentGuess);
 
-	let letters = wordContainer.querySelectorAll(".letter");
+	let letters: NodeListOf<HTMLElement> =
+		wordContainer.querySelectorAll(".letter");
 	if (word.includes(currentGuess)) {
 		el.setAttribute("class", "correct");
-		correctIndexes = indexes(word, currentGuess);
+		let correctIndexes = indexes(word, currentGuess);
 
 		for (let i of correctIndexes) {
 			letters[i].querySelector("p").style.display = "block";
@@ -174,7 +174,7 @@ function processInput(el) {
 		score++;
 	}
 
-	let winStatus;
+	let winStatus: boolean;
 	if (score > 5) {
 		winStatus = false;
 	} else if (wordUnlocked(letters)) {
@@ -183,7 +183,7 @@ function processInput(el) {
 		return;
 	}
 
-	statusEl = statusDisplay.querySelector("#status");
+	let statusEl = statusDisplay.querySelector("#status");
 	if (winStatus) {
 		statusEl.setAttribute("class", "correct");
 		statusEl.innerHTML = "You won!";
