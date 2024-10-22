@@ -16,6 +16,7 @@
 html {
 	background: linear-gradient(rgb(109, 181, 245), rgb(36, 119, 187));
 	background-attachment: fixed;
+	overflow: hidden;
 }
 
 header {
