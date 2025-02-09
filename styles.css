@@ -33,7 +33,6 @@ header {
 }
 
 #content {
-	position: relative;
 	background: beige;
 	width: 60rem;
 	margin: auto;
@@ -302,6 +301,11 @@ button:hover {
 	left: 1.3rem;
 }
 
+#hangman {
+	position: relative;
+	height: 100vh;
+}
+
 @media screen and (max-width: 576px) {
 	html {
 		overflow: scroll;
@@ -318,7 +322,7 @@ button:hover {
 	#content {
 		height: 32rem;
 		margin-top: 0rem;
-		border-radius: 0rem 0rem 1rem 1rem;
+		border-radius: 0rem 0rem 0.5rem 0.5rem;
 		width: 100vw;
 		padding: 0.25rem;
 	}
@@ -343,7 +347,9 @@ button:hover {
 		width: 100%;
 	}
 	#buttons {
-		margin-top: 3rem;
+		position: absolute;
+		bottom: 1rem;
+		left: 0;
 		--gap: 0.25rem;
 	}
 	#buttons button {
