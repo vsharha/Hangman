@@ -133,7 +133,8 @@ header {
 	flex-wrap: wrap;
 	justify-content: center;
 	grid-auto-flow: dense;
-	gap: 0.5rem;
+	--gap: 0.5rem;
+	gap: var(--gap);
 }
 
 button {
@@ -142,7 +143,7 @@ button {
 
 #buttons button {
 	aspect-ratio: 1/1;
-	width: calc((100% - 0.5rem * 9) / 9);
+	width: calc((100% - var(--gap) * 9) / 9);
 	font-size: 1.5rem;
 
 	border: 0.15rem solid black;
@@ -287,17 +288,24 @@ button:hover {
 }
 
 @media screen and (max-width: 576px) {
+	html {
+		overflow: scroll;
+	}
 	header {
-		width: 55%;
-		font-size: 3rem;
+		width: fit-content;
+		font-size: 1.2rem;
 		margin: auto;
 		margin-top: 1.5rem;
 		margin-bottom: 3rem;
+		border-radius: 0.5rem;
+		padding: 0 0.5rem;
 	}
 	#content {
-		height: 69rem;
+		height: 32rem;
 		margin-top: 0rem;
 		border-radius: 0rem 0rem 1rem 1rem;
+		width: 100vw;
+		padding: 0.25rem;
 	}
 	#game {
 		flex-direction: column;
@@ -309,10 +317,10 @@ button:hover {
 		font-size: 5rem;
 	}
 	#drawing {
-		transform: scale(175%) translateX(50%) translateY(25%);
+		transform: scale(70%) translateY(-30%) translateX(10%);
 	}
 	#drawing-container {
-		height: 50rem;
+		height: 20rem;
 		width: 100%;
 	}
 	#input {
@@ -321,9 +329,12 @@ button:hover {
 	}
 	#buttons {
 		margin-top: 3rem;
+		--gap: 0.25rem;
 	}
 	#input button {
-		font-size: 3rem;
+		font-size: 1rem;
+		border-radius: 0.4rem;
+		border-width: 0.1rem;
 	}
 
 	.display {
