@@ -12,7 +12,7 @@
 
 .github {
 	scale: 70%;
-	margin: 2rem 0;
+	margin: 1rem 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -370,6 +370,9 @@ button:hover {
 		margin-bottom: 3rem;
 		border-radius: 0.5rem;
 		padding: 0 0.5rem;
+	}
+	#hangman {
+		height: 100svh;
 	}
 	#content {
 		height: 32rem;
