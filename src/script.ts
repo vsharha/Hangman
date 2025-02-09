@@ -2,7 +2,7 @@ const buttons: NodeListOf<HTMLElement> =
 	document.querySelectorAll("#buttons button");
 const hangman: HTMLElement = document.querySelector(".hangman");
 const wordContainer: HTMLElement = document.querySelector("#word");
-const statusDisplay: HTMLElement = document.querySelector(".display");
+const statusDisplay: HTMLElement = document.querySelector(".display-container");
 
 const bodyPartQueries = [
 	".head",
@@ -194,6 +194,6 @@ function processInput(el: HTMLElement) {
 			letter.querySelector("p").style.display = "block";
 		}
 	}
-	statusDisplay.style.display = "block";
+	statusDisplay.style.display = "flex";
 	allowInput = false;
 }

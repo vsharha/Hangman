@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const buttons = document.querySelectorAll("#buttons button");
 const hangman = document.querySelector(".hangman");
 const wordContainer = document.querySelector("#word");
-const statusDisplay = document.querySelector(".display");
+const statusDisplay = document.querySelector(".display-container");
 const bodyPartQueries = [
     ".head",
     ".torso",
@@ -167,6 +167,6 @@ function processInput(el) {
             letter.querySelector("p").style.display = "block";
         }
     }
-    statusDisplay.style.display = "block";
+    statusDisplay.style.display = "flex";
     allowInput = false;
 }

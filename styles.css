@@ -33,6 +33,7 @@ header {
 }
 
 #content {
+	position: relative;
 	background: beige;
 	width: 60rem;
 	margin: auto;
@@ -59,14 +60,28 @@ header {
 	margin: auto;
 }
 
-.display {
-	width: 40%;
+.display-container {
+	position: fixed;
 	margin: auto;
-	margin-top: 2rem;
-	background: rgba(0, 0, 0, 0.25);
-	padding: 1rem;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
 	display: none;
+	background: rgba(0, 0, 0, 0.25);
+	left: 0;
+	top: 0;
+}
+
+.display {
+	background: rgba(227, 227, 227, 0.9);
+	width: 15rem;
+	margin-top: 2rem;
+	padding: 1rem;
 	border-radius: 0.5rem;
+	border: 0.15rem solid black;
 }
 
 #status {
@@ -311,10 +326,10 @@ button:hover {
 		flex-direction: column;
 	}
 	.letter {
-		width: 9rem;
+		width: 3rem;
 	}
 	.letter p {
-		font-size: 5rem;
+		font-size: 2rem;
 	}
 	#drawing {
 		transform: scale(70%) translateY(-30%) translateX(10%);
@@ -331,7 +346,7 @@ button:hover {
 		margin-top: 3rem;
 		--gap: 0.25rem;
 	}
-	#input button {
+	#buttons button {
 		font-size: 1rem;
 		border-radius: 0.4rem;
 		border-width: 0.1rem;
@@ -340,15 +355,15 @@ button:hover {
 	.display {
 		width: 60%;
 		margin-top: 2rem;
-		padding: 2rem;
+		padding: 1rem;
 	}
 
 	#status {
-		font-size: 4.5rem;
-		margin-bottom: 1.5rem;
+		font-size: 2rem;
+		margin-bottom: 1rem;
 	}
 
 	#reset {
-		font-size: 3rem;
+		font-size: 1.8rem;
 	}
 }
